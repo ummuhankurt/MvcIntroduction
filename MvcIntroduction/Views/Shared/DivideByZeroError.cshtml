@@ -1,8 +1,6 @@
-﻿@model ErrorViewModel
-@{
-    ViewData["Title"] = "Error";
+﻿@{
+    Exception exception = ViewData["HandleException"] as Exception;
 }
-
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +9,6 @@
     <title>Error</title>
 </head>
 <body>
-    <h1>Error?</h1>
+    <h1>Divide By Zero Ex.</h1>
 </body>
 </html>

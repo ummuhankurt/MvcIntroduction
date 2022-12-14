@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MvcIntroduction.Filters;
 using MvcIntroduction.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security;
 using System.Threading.Tasks;
 
 namespace MvcIntroduction.Controllers
@@ -20,6 +22,13 @@ namespace MvcIntroduction.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+        [HandleException(ViewName ="Error",ExceptionType = typeof(SecurityException))]
+        [HandleException(ViewName = "DivideByZeroError", ExceptionType = typeof(DivideByZeroException))]
+        public IActionResult Index2()
+        {
+            throw new SecurityException();
             return View();
         }
 
