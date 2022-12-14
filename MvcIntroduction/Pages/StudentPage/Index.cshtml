@@ -1,0 +1,39 @@
+﻿@page
+@model MvcIntroduction.Pages.StudentPage.IndexModel
+@addTagHelper*,  Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+        @foreach (var item in Model.Students)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <th>@item.FirstName</th>
+                <th>@item.LastName</th>
+                <th>@item.Email</th>
+            </tr>
+        }
+    </table>
+    <form method="post">
+        First Name : <input asp-for="Student.FirstName" />
+        Last Name : <input asp-for="Student.LastName" />
+        Email : <input asp-for="Student.Email" />
+        <input type="submit" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿@model MvcIntroduction.Models.StudentListViewModel
+
+@foreach (var item in Model.Students)
+{
+    <p>@item.FirstName</p>
+    <p>@item.LastName</p>
+}
